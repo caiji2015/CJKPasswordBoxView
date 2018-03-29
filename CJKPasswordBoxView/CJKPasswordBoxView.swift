@@ -21,11 +21,8 @@ class CJKPasswordBoxView: UIView{
     /// 密码内容
     var password: String = ""
     
-    /// 未选中颜色
-    var deselectColor: UIColor = UIColor.black
-    
-    /// 选中颜色
-    var selectedColor: UIColor = UIColor.black
+    /// 边框颜色
+    var borderColor: UIColor = UIColor.black
     
     /// 边框宽度
     var borderWidth: CGFloat = 1
@@ -47,17 +44,15 @@ class CJKPasswordBoxView: UIView{
     ///   - digit: 验证码位数
     ///   - isSecure: 是否密文
     ///   - spacing: 格子间距
-    ///   - deselectColor: 未选中颜色
-    ///   - selectedColor: 选中颜色
+    ///   - borderColor: 边框颜色
     ///   - borderWidth: 边框宽度
     ///   - cornerRadius: 边框圆角
-    init(frame :CGRect,digit: Int,isSecure: Bool,spacing: CGFloat,deselectColor: UIColor,selectedColor: UIColor,borderWidth: CGFloat,cornerRadius: CGFloat,complete:((_ password: String)->Void)? = nil) {
+    init(frame :CGRect,digit: Int,isSecure: Bool,spacing: CGFloat,borderColor: UIColor,borderWidth: CGFloat,cornerRadius: CGFloat,complete:((_ password: String)->Void)? = nil) {
         super.init(frame: frame)
         self.digit = digit
         self.isSecure = isSecure
         self.spacing = spacing
-        self.deselectColor = deselectColor
-        self.selectedColor = selectedColor
+        self.borderColor = borderColor
         self.borderWidth = borderWidth
         self.cornerRadius = cornerRadius
         self.complete = complete
@@ -75,7 +70,7 @@ class CJKPasswordBoxView: UIView{
             passwordTextField.cjkDelegate = self
             passwordTextField.delegate = self
             passwordTextField.keyboardType = .numberPad
-            passwordTextField.layer.borderColor = deselectColor.cgColor
+            passwordTextField.layer.borderColor = borderColor.cgColor
             passwordTextField.layer.borderWidth = borderWidth
             passwordTextField.layer.cornerRadius = cornerRadius
             passwordTextField.tag = 100+i

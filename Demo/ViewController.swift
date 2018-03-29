@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
 
     func setupUI(){
-        let passwordBoxView = CJKPasswordBoxView(frame: CGRect(x: 0, y: 0, width: 245, height: 40), digit: 6, isSecure: true, spacing: 1, deselectColor: .gray, selectedColor: .brown, borderWidth: 1, cornerRadius: 2) {[weak self] (password) in
+        let passwordBoxView = CJKPasswordBoxView(frame: CGRect(x: 0, y: 0, width: 245, height: 40), digit: 6, isSecure: true, spacing: 1, borderColor: .black, borderWidth: 1, cornerRadius: 2) {[weak self] (password) in
             self?.showLabel.text = password
         }
         passwordBoxView.center = view.center
